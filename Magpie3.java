@@ -33,12 +33,44 @@ public class Magpie3 {
 		}
 		else if (findKeyword(statement, "no") >= 0) {
 			response = "Why so negative?";
+		} else if (findKeyword(statement, "I'm good") >= 0
+					 || findKeyword(statement, "Im good") >= 0
+					 || findKeyword(statement, "im good") >= 0)
+		{
+						 response = "That's great! Tell me more!";
+		} else if (findKeyword(statement, "not good") >= 0
+		 			 || findKeyword(statement, "Not good") >= 0
+		 			 || findKeyword(statement, "I'm bad") >= 0
+					 || findKeyword(statement, "Im bad") >= 0
+					 || findKeyword(statement, "im bad") >= 0)
+	  {
+		 				 response = "Awwww man. Why's that?";
+		} else if (findKeyword(statement, "How are you") >= 0)
+		{
+			response = "I'm good. How is life?";
 		} else if (findKeyword(statement, "mother") >= 0
 				   || findKeyword(statement, "father") >= 0
 				   || findKeyword(statement, "sister") >= 0
-				   || findKeyword(statement, "brother") >= 0)
+				   || findKeyword(statement, "brother") >= 0
+					 || findKeyword(statement, "family") >= 0)
 		{
 			response = "Tell me more about your family.";
+		} else if (findKeyword(statement, "dog") >= 0
+					 || findKeyword(statement, "cat") >= 0
+					 || findKeyword(statement, "bird") >= 0
+					 || findKeyword(statement, "fish") >= 0
+					 || findKeyword(statement, "rock") >= 0
+					 || findKeyword(statement, "pet") >= 0)
+		{
+			response = "Tell me more about your pets.";
+		} else if (findKeyword(statement, "football") >= 0
+					 || findKeyword(statement, "basketball") >= 0
+					 || findKeyword(statement, "soccer") >= 0
+					 || findKeyword(statement, "badminton") >= 0
+					 || findKeyword(statement, "hockey") >= 0
+					 || findKeyword(statement, "swimming") >= 0)
+		{
+			response = "Tell me more about your sports.";
 		} else {
 			response = getRandomResponse();
 		}
@@ -61,8 +93,7 @@ public class Magpie3 {
 	 * @return the index of the first occurrence of goal in
 	 *         statement or -1 if it's not found
 	 */
-	private int findKeyword(String statement, String goal,
-			int startPos)
+	private int findKeyword(String statement, String goal, int startPos)
 	{
 		String phrase = statement.trim().toLowerCase();
 		goal = goal.toLowerCase();
